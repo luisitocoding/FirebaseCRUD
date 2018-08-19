@@ -138,7 +138,11 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
             case R.id.icon_delete:{
+                Persona p = new Persona();
+                p.setUid(personaSelected.getUid());
+                databaseReference.child("Persona").child(p.getUid()).removeValue();
                 Toast.makeText(this,"Eliminado", Toast.LENGTH_LONG).show();
+                limpiarCajas();
                 break;
             }
             default:break;
